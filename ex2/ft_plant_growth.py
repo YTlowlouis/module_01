@@ -1,41 +1,36 @@
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
-        self.name = name
-        self.height = height
-        self.age = age
+    def __init__(self, name: str, height: float, age: int) -> None:
+        self.name: str = name
+        self.height: float = height
+        self.age_days: int = age
 
-    def grow(self) -> int:
-        self.height += 1
-        return 1
+    def grow(self) -> None:
+        self.height += 0.8
 
-    def age_older(self) -> None:
-        self.age += 1
+    def age(self) -> None:
+        self.age_days += 1
 
-    def get_info(self) -> None:
-        print(f"{self.name}: {self.height}cm; {self.age} days old")
+    def show(self) -> None:
+        print(f"{self.name.capitalize()}:"
+              f"{round(self.height, 1)}cm, {self.age_days} days old")
+
+
+def main() -> None:
+    print("=== Garden Plant Growth ===")
+    rose = Plant("rose", 25.0, 30)
+
+    initial_height = rose.height
+
+    for day in range(1, 8):
+        print(f"=== Day {day} ===")
+        rose.show()
+        if day < 7:
+            rose.grow()
+            rose.age()
+
+    total_growth = rose.height - initial_height
+    print(f"\nGrowth this week: {round(total_growth)}cm")
 
 
 if __name__ == "__main__":
-    rose = Plant("love", 12, 3)
-    poppy = Plant("opium", 6, 4)
-    blue_poppy = Plant("bread_seeds", 10, 5)
-    growth = 0
-
-    print("=== Day 1 ===")
-    rose.get_info()
-    poppy.get_info()
-    blue_poppy.get_info()
-
-    for _ in range(7):
-        rose.age_older()
-        growth += rose.grow()
-        poppy.age_older()
-        growth += poppy.grow()
-        blue_poppy.age_older()
-        growth += blue_poppy.grow()
-
-    print("=== Day 7 ===")
-    rose.get_info()
-    poppy.get_info()
-    blue_poppy.get_info()
-    print(f"Growth this week: +{growth}cm")
+    main()

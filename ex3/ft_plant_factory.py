@@ -2,18 +2,19 @@ class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.name = name
         self.height = height
-        self.age = age
+        self.age_days = age
 
     def grow(self) -> int:
         self.height += 1
         return 1
 
-    def age_older(self) -> int:
-        self.age += 1
+    def age(self) -> int:
+        self.age_days += 1
         return 1
 
-    def get_info(self) -> None:
-        print(f"{self.name}: {self.height}cm; {self.age} days old")
+    def show(self) -> None:
+        print(f"{self.name.capitalize()}: {round(self.height, 1)}cm, "
+              f"{self.age_days} days old")
 
 
 if __name__ == "__main__":
@@ -31,6 +32,6 @@ if __name__ == "__main__":
         new_plant = Plant(data[0], data[1], data[2])
         list_plant.append(new_plant)
         print("Created:", new_plant.name, f"({new_plant.height}cm,",
-              new_plant.age, "days)")
+              new_plant.age_days, "days)")
 
     print("Total plants created:", len(list_plant))

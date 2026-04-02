@@ -1,7 +1,7 @@
 if __name__ == "__main__":
-    name = "garden"
-    age = 4
+    name = "Rose"
     height = 5
+    age = 3
     print("=== Welcome to my garden ===")
     print("Plant:", name)
     print("Height:", height)

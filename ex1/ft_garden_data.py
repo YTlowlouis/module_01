@@ -4,12 +4,21 @@ class Plant:
         self.height = height
         self.age = age
 
+    def show(self) -> None:
+        print(f"{self.name.capitalize()}: {self.height}cm, {self.age} day old")
+
+
+def main() -> None:
+    print("=== Garden Plant Registry ===")
+
+    rose = Plant("rose", 25, 30)
+    sunflower = Plant("sunflower", 80, 45)
+    cactus = Plant("cactus", 15, 120)
+
+    rose.show()
+    sunflower.show()
+    cactus.show()
+
 
 if __name__ == "__main__":
-    rose = Plant("rosy", 15, 5)
-    orange = Plant("orange", 2, 10)
-    poppy = Plant("opium", 23, 4)
-    print("=== Garden Plant Registry ===")
-    print(f"{rose.name}: {rose.height}cm, {rose.age} days old")
-    print(f"{orange.name}: {orange.height}cm, {orange.age} days old")
-    print(f"{poppy.name}: {poppy.height}cm, {poppy.age} days old")
+    main()
